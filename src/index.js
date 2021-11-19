@@ -18,6 +18,5 @@ function main() {
     manageEmployees_1.demoteEmployee(tree, 'Xavier', 'Maria');
     getEmployees_1.getBoss(tree, 'Bill');
     getEmployees_1.getSubordinates(tree, 'Maria');
-    console.log('main');
 }
 main();

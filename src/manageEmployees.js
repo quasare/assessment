@@ -19,8 +19,8 @@ var TreeNode = /** @class */ (function () {
     }
     /**
      *
-     * @param val
-     * @returns
+     * @param {val} string
+     * @returns {TreeNode}
      */
     TreeNode.prototype.findBoss = function (val) {
         var toVisitStack = [this];
@@ -36,8 +36,8 @@ var TreeNode = /** @class */ (function () {
     };
     /**
    *
-   * @param val
-   * @returns
+   * @param {val} string
+   * @returns {TreeNode[]}
    */
     TreeNode.prototype.findSubordinates = function (val) {
         var toVisitStack = [this];
@@ -54,8 +54,9 @@ var TreeNode = /** @class */ (function () {
     };
     /**
    *
-   * @param val
-   * @returns
+   * @param {employee}
+   * @param {boss} string
+   * @returns {string}
    */
     TreeNode.prototype.hireEmployee = function (emp, boss) {
         var toVisitStack = [this];
@@ -74,8 +75,8 @@ var TreeNode = /** @class */ (function () {
     };
     /**
    *
-   * @param val
-   * @returns
+   * @param {emp} string
+   * @returns {string}
    */
     TreeNode.prototype.fireEmployee = function (emp) {
         var toVisitStack = [this];
@@ -106,8 +107,8 @@ var TreeNode = /** @class */ (function () {
     };
     /**
      *
-     * @param val
-     * @returns
+     * @param {emp} string
+     * @returns {string}
      */
     TreeNode.prototype.promoteEmployee = function (emp) {
         var toVisitStack = [this];
@@ -137,7 +138,8 @@ var TreeNode = /** @class */ (function () {
     };
     /**
       *
-      * @param val
+      * @param {emp} string
+      * @param {sub} string
       * @returns
       */
     TreeNode.prototype.demoteEmployee = function (emp, sub) {

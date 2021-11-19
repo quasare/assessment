@@ -4,7 +4,7 @@
 1. Clone the repo
 2. In the cmd terminal run `npm install`
 3. In the cmd terminal cd into the src directory and run in the cmd line `tsc index.ts`
-4. run in cmd `node.js`
+4. run in cmd `node index.js`
 
 ##Notes
 1. I use js object reference utility in es6 to build the tree
