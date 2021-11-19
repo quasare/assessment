@@ -6,7 +6,7 @@ interface employee {
     salary: string 
 }
 
-
+type employeeListsType = employee | TreeNode;
 
 /**
  * Class Treenode
@@ -78,7 +78,7 @@ export class TreeNode {
           if (current.value.name === boss)
             current.descendants.push(new TreeNode(emp))
 
-            current.descendants.forEach(el  => {subordinatesList.push( el.value.name)})
+            current.descendants.forEach((el: TreeNode )  => {subordinatesList.push( el.value.name)})
             return `[hireEmployee]: Added new employee (${emp.name}) with ${boss} as their boss`;
     
           for (let child of current.descendants)
@@ -94,7 +94,7 @@ export class TreeNode {
     fireEmployee(emp : string) : string {
         let toVisitStack = [this];
         let randomIndex = null
-        let replacment = null
+        let replacment : any = null
 
         let firedName = ''
         while (toVisitStack.length) {
@@ -108,7 +108,7 @@ export class TreeNode {
 
              replacment.value.boss = current.value.boss
              current.descendants.splice(randomIndex, 1)
-            current.descendants.forEach(element => {
+            current.descendants.forEach((element : TreeNode) => {
                 element.value.boss = replacment.value.name
             });
             replacment.descendants = current.descendants
@@ -134,7 +134,7 @@ export class TreeNode {
         let demoted = current.parent.value.name  
         current.parent.value.name = emp
         
-        current.parent.descendants.forEach(el => {
+        current.parent.descendants.forEach((el : TreeNode) => {
             if(el.value.name === emp){
                 el.value.name = demoted
             }
@@ -166,7 +166,7 @@ export class TreeNode {
 
       if (current.value.name === emp){
    
-        current.descendants.forEach(el =>{
+        current.descendants.forEach((el : TreeNode) =>{
             el.value.boss = sub
             if(el.value.name === sub){
                 el.value.name = emp
@@ -201,13 +201,13 @@ export function generateCompanyStructure( employees : Array<employee>) : TreeNod
     }
 
     //Create nodes
-    let empList = []
+    let empList : any  = []
     let nodesList = employees.forEach(emp => {
     empList.push(new TreeNode(emp))
        })
 
     //Create Hash map
-    const idMapping2 = empList.reduce((acc, el, i) => {
+    const idMapping2 = empList.reduce((acc : any, el : any, i : any) => {
     acc[el.value.name] = i;
     return acc;
      }, {});
@@ -215,7 +215,7 @@ export function generateCompanyStructure( employees : Array<employee>) : TreeNod
     let root   
 
     console.log('Generating employee tree...');   
-    empList.forEach(el => {
+    empList.forEach((el : TreeNode) => {
         // Handle the root element
       if (el.value.boss === null) {
           root = el;

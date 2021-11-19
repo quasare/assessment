@@ -24,7 +24,7 @@ export function getBoss(tree : TreeNode, employeeName : string) : TreeNode {
  */
 export function getSubordinates(tree: TreeNode, employeeName : string) : Array<TreeNode>{
     let res = tree.findSubordinates(employeeName)
-    let namesList = []
+    let namesList : any = []
     res.forEach(el => {namesList.push( el.value.name)})
     console.log(`[getSubordinate]: ${employeeName}'s subordinates are ${namesList.join(' ')}`)
     return res
