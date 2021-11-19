@@ -1,3 +1,5 @@
+import { TreeNode } from "./manageEmployees";
+
 /**
  * Given an employee, will find the node above (if any).
  * 
@@ -5,8 +7,11 @@
  * @param {string} employeeName
  * @returns {TreeNode}
  */
-function getBoss() {
-
+export function getBoss(tree : TreeNode, employeeName : string) : TreeNode {
+    let res = tree.findBoss(employeeName)
+    console.log(`[getBoss]: ${employeeName}'s boss is ${res.value.name}`)
+    return res
+    
 }
 
 /**
@@ -17,8 +22,12 @@ function getBoss() {
  * @param {string} employeeName
  * @returns {TreeNode[]}
  */
-function getSubordinates() {
-
+export function getSubordinates(tree: TreeNode, employeeName : string) : Array<TreeNode>{
+    let res = tree.findSubordinates(employeeName)
+    let namesList = []
+    res.forEach(el => {namesList.push( el.value.name)})
+    console.log(`[getSubordinate]: ${employeeName}'s subordinates are ${namesList.join(' ')}`)
+    return res
 }
 
 /**
@@ -29,6 +38,6 @@ function getSubordinates() {
  * @param {string} employeeName
  * @returns {TreeNode}
  */
-function findLowestEmployee() {
+export function findLowestEmployee() {
 
 }
